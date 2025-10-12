@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>账户设置 - 简易登录系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>账户设置</h1>
+            <nav>
+                <a href="{{ url_for('index') }}">首页</a>
+                <a href="{{ url_for('dashboard') }}">仪表盘</a>
+                <a href="{{ url_for('profile') }}">个人资料</a>
+                <a href="{{ url_for('games') }}">游戏中心</a>
+                <a href="{{ url_for('logout') }}">登出</a>
+            </nav>
+        </header>
+
+        <main>
+            <h2>你好，{{ username }}！</h2>
+            <p>这是你的账户设置页面。未来你可以在这里添加功能，例如：</p>
+            <ul>
+                <li>修改密码</li>
+                <li>更改个人偏好</li>
+                <li>绑定手机号/邮箱</li>
+            </ul>
+        </main>
+    </div>
+</body>
+</html>

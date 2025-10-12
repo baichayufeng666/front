@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>仪表盘 - 简易登录系统</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>用户仪表盘</h1>
+            <nav>
+                <a href="{{ url_for('index') }}">首页</a>
+                <a href="{{ url_for('logout') }}">登出</a>
+            </nav>
+        </header>
+<main>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div class="flash-message {{ category }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    
+    <h2>欢迎回来，{{ username }}！</h2>
+    
+    <!-- 功能卡片区域 -->
+    <div class="dashboard-cards">
+        <a href="{{ url_for('profile') }}" class="card">
+            <h3>👤 个人资料</h3>
+            <p>查看和编辑你的个人信息。</p>
+        </a>
+        
+        <a href="{{ url_for('settings') }}" class="card">
+            <h3>⚙️ 账户设置</h3>
+            <p>修改密码、设置通知偏好等。</p>
+        </a>
+        
+        <a href="#" class="card">
+            <h3>📝 我的收藏</h3>
+            <p>查看你收藏的内容。</p>
+        </a>
+        
+        <a href="#" class="card">
+        
+                </div>
+</body>
+</html>

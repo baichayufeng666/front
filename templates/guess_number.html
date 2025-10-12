@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>猜数字游戏 - 游戏中心</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>猜数字游戏</h1>
+            <nav>
+                <a href="{{ url_for('index') }}">首页</a>
+                <a href="{{ url_for('dashboard') }}">仪表盘</a>
+                <a href="{{ url_for('profile') }}">个人资料</a>
+                <a href="{{ url_for('games') }}">游戏中心</a>
+                <a href="{{ url_for('logout') }}">登出</a>
+            </nav>
+        </header>
+
+        <main>
+            <h2>你好，{{ username }}！</h2>
+            <p>猜一个 1 到 100 之间的数字，看看你能多快猜对～</p>
+            <form method="post" action="{{ url_for('check_guess') }}">
+                <input type="number" name="guess" min="1" max="100" placeholder="输入你猜的数字" required>
+                <button type="submit">提交猜测</button>
+            </form>
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="flash-message">
+                        {{ messages[0] }}
+                    </div>
+                {% endif %}
+            {% endwith %}
+        </main>
+    </div>
+</body>
+</html>
